@@ -7,4 +7,8 @@ RSpec.describe Spree::Invoice, type: :model do
     it { should validate_presence_of(:doc_number) }
     it { should validate_presence_of(:doc_type) }
   end
+
+  describe 'associations' do
+    it { should belong_to(:order) }
+  end
 end
