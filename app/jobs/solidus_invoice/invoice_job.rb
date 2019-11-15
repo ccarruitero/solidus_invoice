@@ -11,7 +11,8 @@ class SolidusInvoice::InvoiceJob < ApplicationJob
       sunat_invoice = SunatInvoice::Invoice.new(invoice.sunat_attributes)
 
       # send to sunat
-      SunatInvoice::InvoiceClient.dispatch(sunat_invoice)
+      client = SunatInvoice::InvoiceClient.new
+      client.dispatch(sunat_invoice)
     end
   end
 end
