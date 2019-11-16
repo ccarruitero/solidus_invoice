@@ -13,11 +13,11 @@ module SolidusInvoice
 
         doc_type = bill_address.uid ? '01' : '03'
         doc_number = next_correlative(doc_type)
+
         # generate Spree::Invoice
         invoice = invoices.create(doc_type: doc_type,
                                   doc_number: doc_number,
                                   order: self)
-        SolidusInvoice::SunatJob.perform_later(invoice.id)
       end
 
       def can_generate_invoice?
