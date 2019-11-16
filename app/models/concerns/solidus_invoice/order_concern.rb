@@ -15,9 +15,9 @@ module SolidusInvoice
         doc_number = next_correlative(doc_type)
 
         # generate Spree::Invoice
-        invoice = invoices.create(doc_type: doc_type,
-                                  doc_number: doc_number,
-                                  order: self)
+        invoices.create(doc_type: doc_type,
+                        doc_number: doc_number,
+                        order: self)
       end
 
       def can_generate_invoice?
