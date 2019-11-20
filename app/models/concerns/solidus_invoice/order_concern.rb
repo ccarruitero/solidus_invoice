@@ -21,7 +21,7 @@ module SolidusInvoice
       end
 
       def can_generate_invoice?
-        completed?
+        completed? && paid?
       end
 
       def next_correlative(doc_type, store_id)
