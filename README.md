@@ -1,6 +1,6 @@
 # SolidusInvoice
 
-Introduction goes here.
+Solidus invoicing models and some SUNAT utility
 
 Installation
 ------------
