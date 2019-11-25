@@ -5,4 +5,5 @@ class Spree::InvoiceSerial < Spree::Base
   validates :store_id, presence: true
 
   belongs_to :store
+  has_many :invoices
 end

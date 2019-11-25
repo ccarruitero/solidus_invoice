@@ -10,5 +10,6 @@ RSpec.describe Spree::InvoiceSerial, type: :model do
 
   describe 'associations' do
     it { should belong_to(:store) }
+    it { should have_many(:invoices) }
   end
 end
