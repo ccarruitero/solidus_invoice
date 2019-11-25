@@ -2,7 +2,6 @@
 
 class Spree::Invoice < Spree::Base
   validates :doc_number, presence: true
-  validates :doc_type, presence: true
 
   belongs_to :order
   belongs_to :invoice_serial
