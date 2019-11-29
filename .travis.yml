@@ -5,7 +5,7 @@ bundler_args: --quiet
 script:
   - bundle exec rake
 rvm:
-  - 2.4.1
+  - 2.6.5
 services:
   - postgresql
   - mysql
