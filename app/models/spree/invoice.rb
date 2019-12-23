@@ -6,5 +6,14 @@ class Spree::Invoice < Spree::Base
   belongs_to :order
   belongs_to :invoice_serial
 
-  def sunat_attributes; end
+  delegate :doc_type, to: :invoice_serial
+
+  preference :sunat_attributes, :hash
+
+  def sunat_attributes
+    attrs = preferred_sunat_attributes.dup
+    provider = SunatInvoice::Provider.new(attrs[:provider])
+    attrs[:provider] = provider
+    attrs
+  end
 end
