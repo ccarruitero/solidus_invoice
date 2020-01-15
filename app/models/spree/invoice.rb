@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'sunat_invoice'
+
 class Spree::Invoice < Spree::Base
   validates :doc_number, presence: true
 
@@ -11,7 +13,7 @@ class Spree::Invoice < Spree::Base
   preference :sunat_attributes, :hash
 
   def sunat_attributes
-    attrs = preferred_sunat_attributes.dup
+    attrs = (preferred_sunat_attributes || {}).dup
     provider = SunatInvoice::Provider.new(attrs[:provider])
     attrs[:provider] = provider
     attrs

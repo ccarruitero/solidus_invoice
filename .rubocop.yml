@@ -31,9 +31,6 @@ Style/WordArray:
 Style/ConditionalAssignment:
   Enabled: false
 
-Performance/Count:
-  Enabled: false
-
 Style/RaiseArgs:
   Enabled: false
 
@@ -45,7 +42,7 @@ Style/RegexpLiteral:
 Style/AsciiComments:
   Enabled: false
 
-Lint/EndAlignment:
+Layout/EndAlignment:
   Enabled: false
 
 # From http://relaxed.ruby.style/
@@ -153,7 +150,7 @@ Lint/AssignmentInCondition:
   Enabled: false
   StyleGuide: http://relaxed.ruby.style/#lintassignmentincondition
 
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Exclude:
     - 'Rakefile'
 
@@ -177,7 +174,7 @@ Metrics/ModuleLength:
 Metrics/CyclomaticComplexity:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 
 Metrics/MethodLength:
@@ -205,7 +202,7 @@ Layout/ElseAlignment:
 Layout/IndentationWidth:
   Enabled: false
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   Enabled: false
 
 Layout/ClosingParenthesisIndentation:
@@ -214,13 +211,13 @@ Layout/ClosingParenthesisIndentation:
 Layout/MultilineMethodCallIndentation:
   Enabled: false
 
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   Enabled: false
 
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   Enabled: false
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: false
 
 Layout/DotPosition:
