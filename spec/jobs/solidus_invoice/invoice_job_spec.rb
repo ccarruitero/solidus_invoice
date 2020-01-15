@@ -3,13 +3,15 @@
 require 'spec_helper'
 
 RSpec.describe SolidusInvoice::InvoiceJob, type: :job do
-  let(:store) { create(:store) }
-  let(:address) { create(:address, tax_uid: '10800286726') }
   let(:cli) { class_double('SunatInvoice::InvoiceClient') }
+  let(:store) { create(:store) }
 
   context 'with doc_type 01' do
-    let(:order) { create(:order_ready_to_ship, store: store, bill_address: address) }
     let!(:invoice_serial) { create(:invoice_serial, store: store, doc_type: '01') }
+    let(:address) { create(:address, tax_uid: '10800286726') }
+    let(:order) {
+      create(:order_ready_to_ship, store: store, bill_address: address)
+    }
     let(:provider) { build(:provider) }
     let(:invoice) {
       create(:invoice, invoice_serial: invoice_serial, order: order,

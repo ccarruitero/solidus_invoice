@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :invoice, class: 'Spree::Invoice' do
     doc_number { rand(450) }
-    order { create(:order_ready_to_ship) }
+    order
     invoice_serial
   end
 
