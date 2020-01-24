@@ -5,6 +5,13 @@ FactoryBot.define do
     doc_number { rand(450) }
     order
     invoice_serial
+
+    factory :invoice_with_serial do
+      before(:create) do |invoice|
+        store = create(:store)
+        invoice.invoice_serial { create(:invoice_serial, store: store) }
+      end
+    end
   end
 
   factory :invoice_serial, class: 'Spree::InvoiceSerial' do
