@@ -18,7 +18,7 @@ RSpec.describe Spree::Order, type: :model do
     end
 
     it 'raise error when dont have serials for doc_type' do
-      expect { order.next_correlative('01') }.to raise_error
+      expect { order.next_correlative('01') }.to raise_error(SolidusInvoice::InvalidSerialError)
     end
   end
 
