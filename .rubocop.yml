@@ -161,6 +161,7 @@ Metrics/BlockLength:
   Exclude:
     - '*.gemspec'
     - 'spec/**/**/*'
+    - 'lib/solidus_invoice/factories.rb'
 
 Metrics/BlockNesting:
   Enabled: false
