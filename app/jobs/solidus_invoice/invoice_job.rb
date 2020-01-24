@@ -10,10 +10,9 @@ class SolidusInvoice::InvoiceJob < ApplicationJob
     invoice = Spree::Invoice.find(opts[:invoice_id])
     env = opts[:env]
 
-    if invoice.doc_type == '01'
-      # generate SunatInvoice::Invoice
-      sunat_invoice = SunatInvoice::Invoice.new(invoice.sunat_attributes)
+    sunat_invoice = invoice.build_sunat_invoice
 
+    if invoice.doc_type == '01'
       # send to SUNAT
       client = SunatInvoice::InvoiceClient.new(env)
       response = client.dispatch(sunat_invoice)
