@@ -12,8 +12,8 @@ module SolidusInvoice
     end
 
     def self.activate
-      Dir.glob(File.join(File.dirname(__FILE__), '../../app/overrides/**/*_override*.rb')) do |c|
-        require_dependency(c)
+      Dir.glob(File.join(File.dirname(__FILE__), '../../app/overrides/**/*_override*.rb')).sort.map do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
       end
     end
 
