@@ -13,7 +13,7 @@ module SolidusInvoice
       def generate_invoice
         return unless can_generate_invoice?
 
-        doc_type = bill_address.tax_uid ? '01' : '03'
+        doc_type = bill_address.tax_uid? ? '01' : '03'
         doc_number = next_correlative(doc_type, store.id)
 
         # generate Spree::Invoice
